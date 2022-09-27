@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+#user settings
+xcuserdata/
+
+#compatibility with Xcode 8 or earlier
+*.xcscmblueprint
+*.xccheckout
+
+#project
+**/Builds
+
+.DS_STORE
