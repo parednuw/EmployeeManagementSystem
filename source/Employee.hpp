@@ -4,7 +4,8 @@
 #include <iostream>
 
 /*
- This class represents an employee. Objects can be added to the management system
+ This class represents an employee.
+ Objects of this can be added to the EmployeeManagementSystem.
  
  */
 
