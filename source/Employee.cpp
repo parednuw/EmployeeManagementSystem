@@ -1,6 +1,10 @@
 #include "Employee.hpp"
 
-Employee::Employee()
+Employee::Employee() : mName("Empty"),
+mDepartment("Empty"),
+mJobTitle("Empty"),
+mSalary(0),
+mDateOfBirth()
 {
 	
 }
@@ -30,32 +34,32 @@ void Employee::setSalary(int salary)
 	
 }
 
-void Employee::setDateOfBirth(int day, int month, int year)
+void Employee::setDateOfBirth(Employee::DateOfBirth)
 {
 	
 }
 
 std::string Employee::getName()
 {
-	return name;
+	return mName;
 }
 
 std::string Employee::getDepartment()
 {
-	return department;
+	return mDepartment;
 }
 
 std::string Employee::getJobTitle()
 {
-	return jobTitle;
+	return mJobTitle;
 }
 
 int Employee::getSalary()
 {
-	return salary;
+	return mSalary;
 }
 
-void Employee::getDateOfBirth()
+Employee::DateOfBirth Employee::getDateOfBirth()
 {
-	
+	return mDateOfBirth;
 }
