@@ -17,12 +17,13 @@ public:
 	
 	void addEmployee();
 	void deleteEmployee();
-	void viewEmplyoee();
+	void viewEmployee();
 	void modifyEmployee();
 	
-	void search();
+	void searchEmployee();
 	
 private:
 	//TODO add dynamic array which include all objects of Employee
+	//use unique_ptr to obejcts! objects don't need to be in a continous memory block
 	//std::vector<Employee> entries;
 };
