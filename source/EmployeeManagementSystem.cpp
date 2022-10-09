@@ -12,7 +12,9 @@ EmployeeManagementSystem::~EmployeeManagementSystem()
 
 void EmployeeManagementSystem::addEmployee()
 {
-	
+	std::unique_ptr<Employee> newEmployee = std::make_unique<Employee>();
+	newEmployee->setDateOfBirth(10, 10, 1910);
+	entries.push_back(newEmployee);
 }
 
 void EmployeeManagementSystem::deleteEmployee()

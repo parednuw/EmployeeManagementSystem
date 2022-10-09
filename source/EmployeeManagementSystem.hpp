@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 #include "Employee.hpp"
 
 /*
@@ -25,5 +26,5 @@ public:
 private:
 	//TODO add dynamic array which include all objects of Employee
 	//use unique_ptr to obejcts! objects don't need to be in a continous memory block
-	//std::vector<Employee> entries;
+	std::vector<std::unique_ptr<Employee>> entries;
 };

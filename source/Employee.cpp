@@ -3,8 +3,7 @@
 Employee::Employee() : mName("Empty"),
 mDepartment("Empty"),
 mJobTitle("Empty"),
-mSalary(0),
-mDateOfBirth()
+mSalary(0)
 {
 	
 }
@@ -34,9 +33,11 @@ void Employee::setSalary(int salary)
 	
 }
 
-void Employee::setDateOfBirth(Employee::DateOfBirth)
+void Employee::setDateOfBirth(int day, int month, int year)
 {
-	
+	mDateOfBirth.mDayOfBirth = day;
+	mDateOfBirth.mMonthOfBirth = month;
+	mDateOfBirth.mYearOfBirth = year;
 }
 
 std::string Employee::getName()
@@ -59,7 +60,7 @@ int Employee::getSalary()
 	return mSalary;
 }
 
-Employee::DateOfBirth Employee::getDateOfBirth()
+Employee::dateOfBirth Employee::getDateOfBirth()
 {
 	return mDateOfBirth;
 }

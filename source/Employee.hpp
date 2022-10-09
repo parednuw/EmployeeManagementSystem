@@ -12,34 +12,35 @@
 class Employee
 {
 public:
-	
-	enum DateOfBirth : int
-	{
-		day,
-		month,
-		year
-	};
+
 	
 	Employee();
 	~Employee();
+	
+	struct dateOfBirth
+	{
+		int mDayOfBirth;
+		int mMonthOfBirth;
+		int mYearOfBirth;
+	};
 	
 	void setName(std::string name);
 	void setDepartment (std::string department);
 	void setJobTitle (std::string jobTitle);
 	void setSalary (int salary);
-	void setDateOfBirth (DateOfBirth);
+	void setDateOfBirth (int dayOfBirth, int monthOfBirth, int yearOfBirth);
 	
 	std::string getName();
 	std::string getDepartment();
 	std::string getJobTitle();
 	int getSalary();
-	DateOfBirth getDateOfBirth();
+	dateOfBirth getDateOfBirth();
 	
 private:
 	std::string mName;
 	std::string mDepartment;
 	std::string mJobTitle;
 	int mSalary;
-	DateOfBirth mDateOfBirth;
 	
+	dateOfBirth mDateOfBirth;
 };
