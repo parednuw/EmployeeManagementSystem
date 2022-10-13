@@ -41,6 +41,5 @@ private:
 	std::string mDepartment;
 	std::string mJobTitle;
 	int mSalary;
-	
 	dateOfBirth mDateOfBirth;
 };

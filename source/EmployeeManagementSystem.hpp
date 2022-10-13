@@ -16,6 +16,8 @@ public:
 	EmployeeManagementSystem();
 	~EmployeeManagementSystem();
 	
+	void Run();
+	
 	void addEmployee();
 	void deleteEmployee();
 	void viewEmployee();

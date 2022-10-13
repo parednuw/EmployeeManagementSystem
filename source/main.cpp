@@ -5,6 +5,8 @@
 */
 
 #include <iostream>
+#include "Employee.hpp"
+#include "EmployeeManagementSystem.hpp"
 
 int main(int argc, const char * argv[]) {
 	
@@ -12,6 +14,9 @@ int main(int argc, const char * argv[]) {
 	int exit = 0;
 	
 	do{
+		
+		EmployeeManagementSystem mEmployeeManagementSystem;
+		mEmployeeManagementSystem.Run();	//TODO move while loop into Run()
 		
 		std::cout << "Entered Dowhile-loop." << std::endl;
 		std::cout << "0: exit, 1: one more loop. ... ";

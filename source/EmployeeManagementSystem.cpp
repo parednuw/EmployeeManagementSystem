@@ -10,6 +10,11 @@ EmployeeManagementSystem::~EmployeeManagementSystem()
 	
 }
 
+void EmployeeManagementSystem::Run()
+{
+	
+}
+
 void EmployeeManagementSystem::addEmployee()
 {
 	std::unique_ptr<Employee> newEmployee = std::make_unique<Employee>();
