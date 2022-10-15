@@ -12,7 +12,20 @@ EmployeeManagementSystem::~EmployeeManagementSystem()
 
 void EmployeeManagementSystem::Run()
 {
+	setLoopRunning(true);
 	
+	while(loopIsRunning)
+	{
+		bool isLoopRunning;
+		std::cout << "Entered while-loop" << std::endl;
+		std::cout << "Should loop run? ";
+		std::cin >> isLoopRunning;
+		
+		setLoopRunning(isLoopRunning);
+		
+		
+		
+	}
 }
 
 void EmployeeManagementSystem::addEmployee()
@@ -40,4 +53,9 @@ void EmployeeManagementSystem::modifyEmployee()
 void EmployeeManagementSystem::searchEmployee()
 {
 	
+}
+
+void EmployeeManagementSystem::setLoopRunning(bool isLoopRunning)
+{
+	loopIsRunning = isLoopRunning;
 }
