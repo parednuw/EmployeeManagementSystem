@@ -12,7 +12,7 @@
 int main(int argc, const char * argv[]) {
 	
 	Logger Logger;
-	Logger.LogInfo("Program started.");
+	Logger.LogInfoAndTime("Program started.");
 
 	EmployeeManagementSystem mEmployeeManagementSystem;
 	mEmployeeManagementSystem.Run();
