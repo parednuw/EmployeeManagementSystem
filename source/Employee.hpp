@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "Log.hpp"
 
 /*
  This class represents an employee.

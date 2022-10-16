@@ -16,7 +16,7 @@ void EmployeeManagementSystem::Run()
 	
 	while(loopIsRunning)
 	{
-		std::cout << "Entered while-loop" << std::endl;
+		Logger.LogInfo("Entered while-loop");
 		bool isLoopRunning;
 		
 		bool input;
@@ -38,7 +38,7 @@ void EmployeeManagementSystem::Run()
 void EmployeeManagementSystem::addEmployee()
 {
 	std::unique_ptr<Employee> newEmployee = std::make_unique<Employee>();
-	std::cout << "In future all input regarding adding an employee gets here." << std::endl;
+	Logger.LogInfo("In future all input regarding adding an employee gets here.");
 	newEmployee->setDateOfBirth(10, 10, 1910);
 	entries.push_back(std::move(newEmployee));
 	std::cout << "Added employee." << std::endl;

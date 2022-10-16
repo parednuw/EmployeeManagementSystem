@@ -26,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		EE2F6A1F28E747CF007D2C86 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		EE44624928FC379800A45748 /* Log.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Log.hpp; sourceTree = "<group>"; };
 		EE846C1628F092840035C018 /* EmployeeManagementSystem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EmployeeManagementSystem.cpp; sourceTree = "<group>"; };
 		EE846C1728F092840035C018 /* EmployeeManagementSystem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EmployeeManagementSystem.hpp; sourceTree = "<group>"; };
 		EE9A38AB28F07F5C00A3E5A9 /* Employee.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Employee.cpp; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 				EE9A38AB28F07F5C00A3E5A9 /* Employee.cpp */,
 				EE9A38AC28F07F5C00A3E5A9 /* Employee.hpp */,
 				EE2F6A1F28E747CF007D2C86 /* main.cpp */,
+				EE44624928FC379800A45748 /* Log.hpp */,
 			);
 			name = source;
 			path = ../source;

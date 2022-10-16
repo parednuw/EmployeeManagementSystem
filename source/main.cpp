@@ -7,16 +7,17 @@
 #include <iostream>
 #include "Employee.hpp"
 #include "EmployeeManagementSystem.hpp"
+#include "Log.hpp"
 
 int main(int argc, const char * argv[]) {
 	
-	
-	std::cout << "Program started." << std::endl;
+	Logger Logger;
+	Logger.LogInfo("Program started.");
 
 	EmployeeManagementSystem mEmployeeManagementSystem;
 	mEmployeeManagementSystem.Run();
 	
-	std::cout << "Program will exit now." << std::endl;
+	Logger.LogInfo("Program will exit now.");
 	
 	return 0;
 }
