@@ -12,12 +12,12 @@
 int main(int argc, const char * argv[]) {
 	
 	Logger Logger;
-	Logger.LogInfoAndTime("Program started.");
+	Logger.LogInfo("Program started.", true);
 
 	EmployeeManagementSystem mEmployeeManagementSystem;
 	mEmployeeManagementSystem.Run();
 	
-	Logger.LogInfo("Program will exit now.");
+	Logger.LogInfo("Program will exit now.", true);
 	
 	return 0;
 }
