@@ -66,6 +66,7 @@ void EmployeeManagementSystem::deleteEmployee()
 	if (entries.size() == 0)
 	{
 		Logger.Log("No entry stored!", Logger::Warning, false);
+		
 	}else if (entries.size() != 0)
 	{
 		entries[0].reset();		//necessary?
@@ -81,7 +82,7 @@ void EmployeeManagementSystem::viewEmployee()
 	
 	if (entries.size() == 0)
 	{
-		std::cout << "No entry stored!" << std::endl;
+		Logger.Log("No entry stored!", Logger::None, false);
 		
 	}else if (entries.size() != 0)
 	{
@@ -108,7 +109,7 @@ void EmployeeManagementSystem::modifyEmployee()
 	
 	if (entries.size() == 0)
 	{
-		std::cout << "No entry stored!" << std::endl;
+		Logger.Log("No entry stored!", Logger::None, false);
 		
 	}else if (entries.size() != 0)
 	{
@@ -124,6 +125,16 @@ void EmployeeManagementSystem::searchEmployee()
 {
 	
 }
+
+/*bool EmployeeManagementSystem::isEmpty()
+{
+	if (entries.size() == 0)
+		return true;
+	else
+		return false;
+	
+	
+}*/
 
 void EmployeeManagementSystem::setLoopRunning(bool isLoopRunning)
 {

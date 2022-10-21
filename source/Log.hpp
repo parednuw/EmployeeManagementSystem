@@ -15,22 +15,33 @@ public:
 	
 	enum LogType
 	{
-		Info = 0,
-		Warning = 1,
-		Error = 2
+		None = 0,
+		Info = 1,
+		Warning = 2,
+		Error = 3
 	};
 	
 	void Log(std::string message, LogType logType, bool logWithTime)
 	{
-		if ( logType == Info)	//TODO: case?
+		switch (logType)
 		{
-			logTypeString = "[INFO] ";
-		}else if ( logType == Warning)
-		{
-			logTypeString = "[WARNING] ";
-		}else if (logType == Error)
-		{
-			logTypeString = "[ERROR] ";
+			case None:
+				logTypeString = "";
+				break;
+			case Info:
+				logTypeString = "[INFO] ";
+				break;
+				
+			case Warning:
+				logTypeString = "[WARNING] ";
+				break;
+				
+			case Error:
+				logTypeString = "[ERROR] ";
+				break;
+				
+			default:
+				break;
 		}
 		
 		if (logWithTime)

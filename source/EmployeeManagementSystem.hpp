@@ -23,8 +23,9 @@ public:
 	void deleteEmployee();
 	void viewEmployee();
 	void modifyEmployee();
-	
 	void searchEmployee();
+	
+	//bool isEmpty();
 	
 	void setLoopRunning(bool isLoopRunning);
 	
