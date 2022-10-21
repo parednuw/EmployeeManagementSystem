@@ -23,6 +23,8 @@ public:
 		int mDayOfBirth;
 		int mMonthOfBirth;
 		int mYearOfBirth;
+		
+		std::string toString();
 	};
 	
 	void setName(std::string name);

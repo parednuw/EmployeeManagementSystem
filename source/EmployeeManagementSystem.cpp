@@ -20,16 +20,21 @@ void EmployeeManagementSystem::Run()
 		bool isLoopRunning;
 		
 		bool input;
+		std::cin.ignore(INT_MAX, '\n');
 		std::cout << "Do you want to add an employee? ";
 		std::cin >> input;
 		if (input == 1)	//without error-checking
 			addEmployee();
 		
+		viewEmployee();
+		
+		deleteEmployee();
+		
+		viewEmployee();
+		
 		std::cin.ignore(INT_MAX, '\n');	//clears all previous input (buffer)
 		std::cout << "Should loop run? ";
 		std::cin >> isLoopRunning;
-		
-		
 		setLoopRunning(isLoopRunning);
 	}
 	
@@ -46,11 +51,25 @@ void EmployeeManagementSystem::addEmployee()
 
 void EmployeeManagementSystem::deleteEmployee()
 {
-	
+	entries[0].reset();
+	Logger.Log("Deleted Entry.", Logger::Info, false);
+	entries.erase(entries.begin());
 }
 
 void EmployeeManagementSystem::viewEmployee()
 {
+	Logger.Log("Viewing Employee", Logger::Info, false);
+	
+	if (entries.size() == 0)
+	{
+		std::cout << "No entry stored!" << std::endl;
+	}else if (entries.size() != 0)
+	{
+		//std::unique_ptr<Employee> employeeToView = std::make_unique<Employee>();
+		Employee* employeeToView = entries[0].get();
+		Employee::dateOfBirth employeeToViewDateOfBirth = employeeToView->getDateOfBirth();
+		std::cout << "Date of Birth: " << employeeToViewDateOfBirth.toString() << std::endl;
+	}
 	
 }
 

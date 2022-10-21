@@ -64,3 +64,13 @@ Employee::dateOfBirth Employee::getDateOfBirth()
 {
 	return mDateOfBirth;
 }
+
+std::string Employee::dateOfBirth::toString()
+{
+	std::string dayString = std::to_string(mDayOfBirth);
+	std::string monthString = std::to_string(mMonthOfBirth);
+	std::string yearString = std::to_string(mYearOfBirth);
+	
+	std::string string = dayString + "." + monthString + "." + yearString;
+	return string;
+}

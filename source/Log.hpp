@@ -22,7 +22,7 @@ public:
 	
 	void Log(std::string message, LogType logType, bool logWithTime)
 	{
-		if ( logType == Info)
+		if ( logType == Info)	//TODO: case?
 		{
 			logTypeString = "[INFO] ";
 		}else if ( logType == Warning)
