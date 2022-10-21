@@ -24,22 +24,22 @@ public:
 	{
 		if ( logType == Info)
 		{
-			string = "[INFO] ";
+			logTypeString = "[INFO] ";
 		}else if ( logType == Warning)
 		{
-			string = "[WARNING] ";
+			logTypeString = "[WARNING] ";
 		}else if (logType == Error)
 		{
-			string = "[ERROR] ";
+			logTypeString = "[ERROR] ";
 		}
 		
 		if (logWithTime)
 		{
 			const std::time_t t_c = getTime();
-			std::cout << std::put_time(std::localtime(&t_c), "%F %T ") << string << message << std::endl;
+			std::cout << std::put_time(std::localtime(&t_c), "%F %T ") << logTypeString << message << std::endl;
 		}else if (! logWithTime)
 		{
-			std::cout << string << message << std::endl;
+			std::cout << logTypeString << message << std::endl;
 		}
 	}
 	
@@ -50,7 +50,7 @@ public:
 	}
 
 private:
-	std::string string;
+	std::string logTypeString;
 	
 };
 
