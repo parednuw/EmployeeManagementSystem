@@ -40,9 +40,10 @@ public:
 	dateOfBirth getDateOfBirth();
 	
 private:
-	std::string mName;
-	std::string mDepartment;
-	std::string mJobTitle;
-	int mSalary;
-	dateOfBirth mDateOfBirth;
+		std::string mName;
+		std::string mDepartment;
+		std::string mJobTitle;
+		int mSalary;
+		dateOfBirth mDateOfBirth;
+		//TODO: create a container for the properties
 };

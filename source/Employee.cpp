@@ -13,27 +13,27 @@ Employee::~Employee()
 	
 }
 
-void Employee::setName(std::string name)
+void Employee::setName(std::string name)	//no error checking implemented yet
 {
-	
+	mName = name;
 }
 
-void Employee::setDepartment(std::string department)
+void Employee::setDepartment(std::string department)	//no error checking implemented yet
 {
-	
+	mDepartment = department;
 }
 
-void Employee::setJobTitle(std::string jobTitle)
+void Employee::setJobTitle(std::string jobTitle)	//no error checking implemented yet
 {
-	
+	mJobTitle = jobTitle;
 }
 
-void Employee::setSalary(int salary)
+void Employee::setSalary(int salary)	//no error checking implemented yet
 {
-	
+	mSalary = salary;
 }
 
-void Employee::setDateOfBirth(int day, int month, int year)
+void Employee::setDateOfBirth(int day, int month, int year)	//no error checking implemented yet
 {
 	mDateOfBirth.mDayOfBirth = day;
 	mDateOfBirth.mMonthOfBirth = month;
