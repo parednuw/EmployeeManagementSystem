@@ -61,9 +61,18 @@ void EmployeeManagementSystem::addEmployee()
 
 void EmployeeManagementSystem::deleteEmployee()
 {
-	entries[0].reset();		//necessary?
-	entries.erase(entries.begin());
-	Logger.Log("Deleted Entry.", Logger::Info, false);
+	Logger.Log("Deleting...", Logger::Info, false);
+	
+	if (entries.size() == 0)
+	{
+		Logger.Log("No entry stored!", Logger::Warning, false);
+	}else if (entries.size() != 0)
+	{
+		entries[0].reset();		//necessary?
+		entries.erase(entries.begin());
+		Logger.Log("Deleted Entry.", Logger::Info, false);
+	}
+	Logger.Log("Deleting Employee finished\n###############", Logger::Info, false);
 }
 
 void EmployeeManagementSystem::viewEmployee()
@@ -90,11 +99,13 @@ void EmployeeManagementSystem::viewEmployee()
 		std::cout << "Salary: " << employeeToViewSalaryString << std::endl;
 		std::cout << "Date of Birth: " << employeeToViewDateOfBirth.toString() << std::endl;
 	}
-	
+	Logger.Log("Viewing Employee finished\n###############", Logger::Info, false);
 }
 
 void EmployeeManagementSystem::modifyEmployee()
 {
+	Logger.Log("Modifying Employee...", Logger::Info, false);
+	
 	if (entries.size() == 0)
 	{
 		std::cout << "No entry stored!" << std::endl;
@@ -105,6 +116,8 @@ void EmployeeManagementSystem::modifyEmployee()
 		employeeToModify->setDateOfBirth(20, 20, 2020);
 		Logger.Log("Modified entry.", Logger::Info, false);
 	}
+	
+	Logger.Log("Modifying Employee finished.\n###############", Logger::Info, false);
 }
 
 void EmployeeManagementSystem::searchEmployee()
