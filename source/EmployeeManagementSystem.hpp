@@ -25,8 +25,6 @@ public:
 	void modifyEmployee();
 	void searchEmployee();
 	
-	//bool isEmpty();
-	
 	void setLoopRunning(bool isLoopRunning);
 	
 private:

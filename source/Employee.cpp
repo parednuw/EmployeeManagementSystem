@@ -14,15 +14,6 @@ Employee::~Employee()
 	
 }
 
-void Employee::set(std::string name, std::string department, std::string jobTitle, int salaray, dateOfBirth dateOfBirth)
-{
-	this->setName(name);
-	this->setDepartment(department);
-	this->setJobTitle(jobTitle);
-	this->setSalary(salaray);
-	this->setDateOfBirth(dateOfBirth.mDayOfBirth, dateOfBirth.mMonthOfBirth, dateOfBirth.mYearOfBirth);
-}
-
 void Employee::setName(std::string name)	//no error checking implemented yet
 {
 	mName = name;
@@ -84,11 +75,9 @@ void Employee::print()
 	std::string employeeToViewSalaryString = std::to_string(employeeToViewSalary);
 	Employee::dateOfBirth employeeToViewDateOfBirth = this->getDateOfBirth();
 	
-	std::cout << "Name: " << employeeToViewName << std::endl;
-	std::cout << "Department: " << employeeToViewDepartment << std::endl;
-	std::cout << "Job Title: " << employeeToViewJobTitle << std::endl;
-	std::cout << "Salary: " << employeeToViewSalaryString << std::endl;
-	std::cout << "Date of Birth: " << employeeToViewDateOfBirth.toString() << std::endl;
+	std::cout << "NAME................" << "DEPARTMENT.........." << " JOB TITLE..........." << "SALARY.............." << "DATE OF BIRTH......." << std::endl;
+	
+	std::cout << employeeToViewName << employeeToViewDepartment << employeeToViewJobTitle << employeeToViewSalaryString << employeeToViewDateOfBirth.toString() << std::endl;
 }
 
 std::string Employee::dateOfBirth::toString()

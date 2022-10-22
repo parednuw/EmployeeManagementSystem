@@ -26,17 +26,7 @@ void EmployeeManagementSystem::Run()
 		if (input == 1)	//without error-checking
 			addEmployee();
 		
-		//Testing methods
 		viewEmployee();
-		
-		modifyEmployee();
-		
-		viewEmployee();
-		
-		deleteEmployee();
-		
-		viewEmployee();
-		//Done Testing methods
 		
 		std::cout << "Should loop run? ";
 		std::cin >> isLoopRunning;
@@ -49,13 +39,16 @@ void EmployeeManagementSystem::Run()
 void EmployeeManagementSystem::addEmployee()
 {
 	Logger.Log("In future all input regarding adding an employee gets here.", Logger::Info, false);
+	
 	std::unique_ptr<Employee> newEmployee = std::make_unique<Employee>();
 	std::string name;
 	std::string department;
 	std::string jobTitle;
 	int salary;
 	Employee::dateOfBirth dateOfBirth;
-	//Simulating user-input
+	
+	//Get user-input
+	//-----------------
 	std::cout << "Please enter the name: ";
 	std::getline(std::cin, name);
 	std::cout << "Please enter the department: ";
@@ -69,10 +62,15 @@ void EmployeeManagementSystem::addEmployee()
 	std::cin.ignore(INT_MAX, '\n');
 	std::cout << "Please enter the date of birth: ";
 	dateOfBirth = {10, 10, 1910};
+
+	newEmployee->setName(name);
+	newEmployee->setDepartment(department);
+	newEmployee->setJobTitle(jobTitle);
+	newEmployee->setSalary(salary);
+	newEmployee->setDateOfBirth(dateOfBirth.mDayOfBirth, dateOfBirth.mMonthOfBirth, dateOfBirth.mYearOfBirth);
 	
-	//Simulating finished
-	newEmployee->set(name, department, jobTitle, salary, dateOfBirth);
 	entries.push_back(std::move(newEmployee));
+	
 	std::cout << "Added employee." << std::endl;
 }
 
@@ -80,16 +78,17 @@ void EmployeeManagementSystem::deleteEmployee()
 {
 	Logger.Log("Deleting...", Logger::Info, false);
 	
-	if (entries.size() == 0)
+	if (entries.empty())
 	{
 		Logger.Log("No entry stored!", Logger::Warning, false);
 		
-	}else if (entries.size() != 0)
+	}else if (!entries.empty())
 	{
 		entries[0].reset();		//necessary?
 		entries.erase(entries.begin());
 		Logger.Log("Deleted Entry.", Logger::Info, false);
 	}
+	
 	Logger.Log("Deleting Employee finished\n###############", Logger::Info, false);
 }
 
@@ -97,15 +96,20 @@ void EmployeeManagementSystem::viewEmployee()
 {
 	Logger.Log("Viewing Employee...", Logger::Info, false);
 	
-	if (entries.size() == 0)
+	if (entries.empty())
 	{
 		Logger.Log("No entry stored!", Logger::None, false);
 		
-	}else if (entries.size() != 0)
+	}else if (!entries.empty())
 	{
-		Employee* employeeToView = entries[0].get();
-		employeeToView->print();
+		for (std::size_t i = 0; i < entries.size(); i++)
+		{
+			Employee* employeeToView = entries[i].get();
+			employeeToView->print();
+		}
+		
 	}
+	
 	Logger.Log("Viewing Employee finished\n###############", Logger::Info, false);
 }
 
@@ -113,11 +117,11 @@ void EmployeeManagementSystem::modifyEmployee()
 {
 	Logger.Log("Modifying Employee...", Logger::Info, false);
 	
-	if (entries.size() == 0)
+	if (entries.empty())
 	{
 		Logger.Log("No entry stored!", Logger::None, false);
 		
-	}else if (entries.size() != 0)
+	}else if (!entries.empty())
 	{
 		Employee* employeeToModify = entries[0].get();
 		employeeToModify->setDateOfBirth(20, 20, 2020);
@@ -131,16 +135,6 @@ void EmployeeManagementSystem::searchEmployee()
 {
 	
 }
-
-/*bool EmployeeManagementSystem::isEmpty()
-{
-	if (entries.size() == 0)
-		return true;
-	else
-		return false;
-	
-	
-}*/
 
 void EmployeeManagementSystem::setLoopRunning(bool isLoopRunning)
 {
