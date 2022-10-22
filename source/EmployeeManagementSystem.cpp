@@ -20,9 +20,9 @@ void EmployeeManagementSystem::Run()
 		bool isLoopRunning;
 		
 		bool input;
-		std::cin.ignore(INT_MAX, '\n');
 		std::cout << "Do you want to add an employee? ";
 		std::cin >> input;
+		std::cin.ignore(INT_MAX, '\n');
 		if (input == 1)	//without error-checking
 			addEmployee();
 		
@@ -38,9 +38,9 @@ void EmployeeManagementSystem::Run()
 		viewEmployee();
 		//Done Testing methods
 		
-		std::cin.ignore(INT_MAX, '\n');	//clears all previous input (buffer)
 		std::cout << "Should loop run? ";
 		std::cin >> isLoopRunning;
+		std::cin.ignore(INT_MAX, '\n');	//clears all previous input (buffer)
 		setLoopRunning(isLoopRunning);
 	}
 	
@@ -50,11 +50,28 @@ void EmployeeManagementSystem::addEmployee()
 {
 	Logger.Log("In future all input regarding adding an employee gets here.", Logger::Info, false);
 	std::unique_ptr<Employee> newEmployee = std::make_unique<Employee>();
-	newEmployee->setName("Toni Test");
-	newEmployee->setDepartment("Sales");
-	newEmployee->setJobTitle("Head");
-	newEmployee->setSalary(3000);
-	newEmployee->setDateOfBirth(10, 10, 1910);
+	std::string name;
+	std::string department;
+	std::string jobTitle;
+	int salary;
+	Employee::dateOfBirth dateOfBirth;
+	//Simulating user-input
+	std::cout << "Please enter the name: ";
+	std::getline(std::cin, name);
+	std::cout << "Please enter the department: ";
+	std::cin >> department;
+	std::cin.ignore(INT_MAX, '\n');
+	std::cout << "Please enter the jobtitle: ";
+	std::cin >> jobTitle;
+	std::cin.ignore(INT_MAX, '\n');
+	std::cout << "Please enter the salary: ";
+	std::cin >> salary;
+	std::cin.ignore(INT_MAX, '\n');
+	std::cout << "Please enter the date of birth: ";
+	dateOfBirth = {10, 10, 1910};
+	
+	//Simulating finished
+	newEmployee->set(name, department, jobTitle, salary, dateOfBirth);
 	entries.push_back(std::move(newEmployee));
 	std::cout << "Added employee." << std::endl;
 }

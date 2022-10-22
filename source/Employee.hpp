@@ -39,6 +39,7 @@ public:
 	int getSalary();
 	dateOfBirth getDateOfBirth();
 	
+	void set(std::string name, std::string department, std::string jobTitle, int salaray, dateOfBirth dateOfBirth);
 	void print();
 	
 private:
@@ -47,5 +48,5 @@ private:
 		std::string mJobTitle;
 		int mSalary;
 		dateOfBirth mDateOfBirth;
-		//TODO: create a container for the properties
+		//TODO: create a container for the properties?
 };

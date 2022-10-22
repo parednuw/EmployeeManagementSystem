@@ -3,7 +3,8 @@
 Employee::Employee() : mName("Empty"),
 mDepartment("Empty"),
 mJobTitle("Empty"),
-mSalary(0)
+mSalary(0),
+mDateOfBirth{00, 00, 0000}
 {
 	
 }
@@ -11,6 +12,15 @@ mSalary(0)
 Employee::~Employee()
 {
 	
+}
+
+void Employee::set(std::string name, std::string department, std::string jobTitle, int salaray, dateOfBirth dateOfBirth)
+{
+	this->setName(name);
+	this->setDepartment(department);
+	this->setJobTitle(jobTitle);
+	this->setSalary(salaray);
+	this->setDateOfBirth(dateOfBirth.mDayOfBirth, dateOfBirth.mMonthOfBirth, dateOfBirth.mYearOfBirth);
 }
 
 void Employee::setName(std::string name)	//no error checking implemented yet
