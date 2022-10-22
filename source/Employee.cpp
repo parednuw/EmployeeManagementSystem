@@ -65,6 +65,22 @@ Employee::dateOfBirth Employee::getDateOfBirth()
 	return mDateOfBirth;
 }
 
+void Employee::print()
+{
+	std::string employeeToViewName = this->getName();
+	std::string employeeToViewDepartment = this->getDepartment();
+	std::string employeeToViewJobTitle = this->getJobTitle();
+	int employeeToViewSalary = this->getSalary();
+	std::string employeeToViewSalaryString = std::to_string(employeeToViewSalary);
+	Employee::dateOfBirth employeeToViewDateOfBirth = this->getDateOfBirth();
+	
+	std::cout << "Name: " << employeeToViewName << std::endl;
+	std::cout << "Department: " << employeeToViewDepartment << std::endl;
+	std::cout << "Job Title: " << employeeToViewJobTitle << std::endl;
+	std::cout << "Salary: " << employeeToViewSalaryString << std::endl;
+	std::cout << "Date of Birth: " << employeeToViewDateOfBirth.toString() << std::endl;
+}
+
 std::string Employee::dateOfBirth::toString()
 {
 	std::string dayString = std::to_string(mDayOfBirth);

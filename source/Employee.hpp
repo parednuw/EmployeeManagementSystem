@@ -39,6 +39,8 @@ public:
 	int getSalary();
 	dateOfBirth getDateOfBirth();
 	
+	void print();
+	
 private:
 		std::string mName;
 		std::string mDepartment;

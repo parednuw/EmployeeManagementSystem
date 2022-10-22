@@ -87,18 +87,7 @@ void EmployeeManagementSystem::viewEmployee()
 	}else if (entries.size() != 0)
 	{
 		Employee* employeeToView = entries[0].get();
-		std::string employeeToViewName = employeeToView->getName();
-		std::string employeeToViewDepartment = employeeToView->getDepartment();
-		std::string employeeToViewJobTitle = employeeToView->getJobTitle();
-		int employeeToViewSalary = employeeToView->getSalary();
-		std::string employeeToViewSalaryString = std::to_string(employeeToViewSalary);
-		Employee::dateOfBirth employeeToViewDateOfBirth = employeeToView->getDateOfBirth();
-		
-		std::cout << "Name: " << employeeToViewName << std::endl;
-		std::cout << "Department: " << employeeToViewDepartment << std::endl;
-		std::cout << "Job Title: " << employeeToViewJobTitle << std::endl;
-		std::cout << "Salary: " << employeeToViewSalaryString << std::endl;
-		std::cout << "Date of Birth: " << employeeToViewDateOfBirth.toString() << std::endl;
+		employeeToView->print();
 	}
 	Logger.Log("Viewing Employee finished\n###############", Logger::Info, false);
 }
