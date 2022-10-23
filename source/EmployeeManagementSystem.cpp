@@ -27,6 +27,9 @@ void EmployeeManagementSystem::Run()
 			addEmployee();
 		
 		viewEmployee();
+		modifyEmployee();
+		viewEmployee();
+		searchEmployee();
 		
 		std::cout << "Should loop run? ";
 		std::cin >> isLoopRunning;
@@ -123,7 +126,11 @@ void EmployeeManagementSystem::modifyEmployee()
 		
 	}else if (!entries.empty())
 	{
-		Employee* employeeToModify = entries[0].get();
+		int userinput;
+		std::cout << "Which employee do you want to modify? ";	//basic userinput to modify an entry
+		std::cin >> userinput;
+		
+		Employee* employeeToModify = entries[userinput].get();
 		employeeToModify->setDateOfBirth(20, 20, 2020);
 		Logger.Log("Modified entry.", Logger::Info, false);
 	}
@@ -133,7 +140,19 @@ void EmployeeManagementSystem::modifyEmployee()
 
 void EmployeeManagementSystem::searchEmployee()
 {
+	Logger.Log("Searching Employee...", Logger::Info, false);
 	
+	std::string input = "Paul";
+	
+	for (std::size_t i = 0; i < entries.size(); i++)
+	{
+		Employee* employeeToSearch = entries[i].get();
+		std::string employeeToSearchName = employeeToSearch->getName();
+		if (input == employeeToSearchName)
+			employeeToSearch->print();
+	}
+	
+	Logger.Log("Searching Employee finished.\n###############", Logger::Info, false);
 }
 
 void EmployeeManagementSystem::setLoopRunning(bool isLoopRunning)
