@@ -40,6 +40,7 @@ public:
 	dateOfBirth getDateOfBirth();
 	
 	void print();
+	dateOfBirth toDateOfBirth(std::string userInputString);
 	
 private:
 		std::string mName;

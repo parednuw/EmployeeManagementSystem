@@ -41,13 +41,12 @@ void EmployeeManagementSystem::Run()
 
 void EmployeeManagementSystem::addEmployee()
 {
-	Logger.Log("In future all input regarding adding an employee gets here.", Logger::Info, false);
-	
 	std::unique_ptr<Employee> newEmployee = std::make_unique<Employee>();
 	std::string name;
 	std::string department;
 	std::string jobTitle;
 	int salary;
+	std::string dateOfBirthString;
 	Employee::dateOfBirth dateOfBirth;
 	
 	//Get user-input
@@ -63,14 +62,17 @@ void EmployeeManagementSystem::addEmployee()
 	std::cout << "Please enter the salary: ";
 	std::cin >> salary;
 	std::cin.ignore(INT_MAX, '\n');
-	std::cout << "Please enter the date of birth: ";
-	dateOfBirth = {10, 10, 1910};
+	std::cout << "Please enter the date of birth (DD.MM.YYYY): ";
+	//std::cin >> dateOfBirthString;
+	//dateOfBirth = Employee::toDateOfBirth(dateOfBirthString);
+	//dateOfBirth = {10, 10, 1910};
 
 	newEmployee->setName(name);
 	newEmployee->setDepartment(department);
 	newEmployee->setJobTitle(jobTitle);
 	newEmployee->setSalary(salary);
 	newEmployee->setDateOfBirth(dateOfBirth.mDayOfBirth, dateOfBirth.mMonthOfBirth, dateOfBirth.mYearOfBirth);
+	newEmployee->toDateOfBirth(jobTitle); //only for testing the function
 	
 	entries.push_back(std::move(newEmployee));
 	
@@ -110,7 +112,6 @@ void EmployeeManagementSystem::viewEmployee()
 			Employee* employeeToView = entries[i].get();
 			employeeToView->print();
 		}
-		
 	}
 	
 	Logger.Log("Viewing Employee finished\n###############", Logger::Info, false);

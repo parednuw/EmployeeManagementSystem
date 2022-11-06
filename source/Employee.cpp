@@ -80,6 +80,31 @@ void Employee::print()
 	std::cout << employeeToViewName << employeeToViewDepartment << employeeToViewJobTitle << employeeToViewSalaryString << employeeToViewDateOfBirth.toString() << std::endl;
 }
 
+Employee::dateOfBirth Employee::toDateOfBirth(std::string userInputString)
+{
+	//TODO: if input of user is already int, none of the following would be necessary. break user input for date of birth into multiple input-requests would be perfect, because with a GUI the values are int and seperately nevertheless.
+	
+	Employee::dateOfBirth dateOfBirth;
+	userInputString = "10.20.3030";	//placeholder input
+	
+	std::string::size_type index = 0;
+	int size = userInputString.size();
+	
+	index = userInputString.find('.', index);
+	std::string day = userInputString.substr(0, index);
+	std::string month = userInputString.substr(index + 1, 2);
+	
+	std::string substring = userInputString.substr(index + 1, size);
+	index = substring.find('.', index);
+	std::string year = substring.substr(index + 1, size);
+	
+	dateOfBirth.mDayOfBirth = std::stoi(day);
+	dateOfBirth.mMonthOfBirth = std::stoi(month);
+	dateOfBirth.mYearOfBirth = std::stoi(year);
+	std::cout << std::endl << dateOfBirth.mYearOfBirth << std::endl << dateOfBirth.mMonthOfBirth << std::endl << dateOfBirth.mDayOfBirth << std::endl;
+	return dateOfBirth;
+}
+
 std::string Employee::dateOfBirth::toString()
 {
 	std::string dayString = std::to_string(mDayOfBirth);
