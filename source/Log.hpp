@@ -21,7 +21,7 @@ public:
 		Error = 3
 	};
 	
-	void Log(std::string message, LogType logType, bool logWithTime)
+	void log(std::string message, LogType logType, bool logWithTime)
 	{
 		switch (logType)
 		{
@@ -66,3 +66,4 @@ private:
 };
 
 //TODO: Measurement of the duration of computation
+//TODO: Silencing output of specific LogTypes

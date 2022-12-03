@@ -16,7 +16,7 @@ void EmployeeManagementSystem::Run()
 	
 	while(loopIsRunning)
 	{
-		Logger.Log("Entered while-loop", Logger::Info, false);
+		Logger.log("Entered while-loop", Logger::Info, false);
 		bool isLoopRunning;
 		
 		bool input;
@@ -53,28 +53,29 @@ void EmployeeManagementSystem::addEmployee()
 	//-----------------
 	std::cout << "Please enter the name: ";
 	std::getline(std::cin, name);
+	newEmployee->setName(name);	//TODO: here and in the following setter-lines is one copy-instruction to much
 	std::cout << "Please enter the department: ";
 	std::cin >> department;
+	newEmployee->setDepartment(department);
 	std::cin.ignore(INT_MAX, '\n');
 	std::cout << "Please enter the jobtitle: ";
 	std::cin >> jobTitle;
+	newEmployee->setJobTitle(jobTitle);
 	std::cin.ignore(INT_MAX, '\n');
 	std::cout << "Please enter the salary: ";
 	std::cin >> salary;
+	newEmployee->setSalary(salary);
 	std::cin.ignore(INT_MAX, '\n');
 	std::cout << "Please enter the day of the date of birth (DD): ";
 	std::cin >> dateOfBirth.mDayOfBirth;
-	std::cout << "Please enter the month of the date of birth (DD): ";
+	std::cin.ignore(INT_MAX, '\n');
+	std::cout << "Please enter the month of the date of birth (MM): ";
 	std::cin >> dateOfBirth.mMonthOfBirth;
-	std::cout << "Please enter the year of the date of birth (DD): ";
+	std::cin.ignore(INT_MAX, '\n');
+	std::cout << "Please enter the year of the date of birth (YYYY): ";
 	std::cin >> dateOfBirth.mYearOfBirth;
-
-	newEmployee->setName(name);
-	newEmployee->setDepartment(department);
-	newEmployee->setJobTitle(jobTitle);
-	newEmployee->setSalary(salary);
 	newEmployee->setDateOfBirth(dateOfBirth.mDayOfBirth, dateOfBirth.mMonthOfBirth, dateOfBirth.mYearOfBirth);
-	//newEmployee->toDateOfBirth(jobTitle); //only for testing the function
+	std::cin.ignore(INT_MAX, '\n');
 	
 	entries.push_back(std::move(newEmployee));
 	
@@ -83,29 +84,29 @@ void EmployeeManagementSystem::addEmployee()
 
 void EmployeeManagementSystem::deleteEmployee()
 {
-	Logger.Log("Deleting...", Logger::Info, false);
+	Logger.log("Deleting...", Logger::Info, false);
 	
 	if (entries.empty())
 	{
-		Logger.Log("No entry stored!", Logger::Warning, false);
+		Logger.log("No entry stored!", Logger::Warning, false);
 		
 	}else if (!entries.empty())
 	{
 		entries[0].reset();		//necessary?
 		entries.erase(entries.begin());
-		Logger.Log("Deleted Entry.", Logger::Info, false);
+		Logger.log("Deleted Entry.", Logger::Info, false);
 	}
 	
-	Logger.Log("Deleting Employee finished\n###############", Logger::Info, false);
+	Logger.log("Deleting Employee finished\n###############", Logger::Info, false);
 }
 
 void EmployeeManagementSystem::viewEmployee()
 {
-	Logger.Log("Viewing Employee...", Logger::Info, false);
+	Logger.log("Viewing Employee...", Logger::Info, false);
 	
 	if (entries.empty())
 	{
-		Logger.Log("No entry stored!", Logger::None, false);
+		Logger.log("No entry stored!", Logger::None, false);
 		
 	}else if (!entries.empty())
 	{
@@ -116,16 +117,16 @@ void EmployeeManagementSystem::viewEmployee()
 		}
 	}
 	
-	Logger.Log("Viewing Employee finished\n###############", Logger::Info, false);
+	Logger.log("Viewing Employee finished\n###############", Logger::Info, false);
 }
 
 void EmployeeManagementSystem::modifyEmployee()
 {
-	Logger.Log("Modifying Employee...", Logger::Info, false);
+	Logger.log("Modifying Employee...", Logger::Info, false);
 	
 	if (entries.empty())
 	{
-		Logger.Log("No entry stored!", Logger::None, false);
+		Logger.log("No entry stored!", Logger::None, false);
 		
 	}else if (!entries.empty())
 	{
@@ -135,15 +136,15 @@ void EmployeeManagementSystem::modifyEmployee()
 		
 		Employee* employeeToModify = entries[userinput].get();
 		employeeToModify->setDateOfBirth(20, 20, 2020);
-		Logger.Log("Modified entry.", Logger::Info, false);
+		Logger.log("Modified entry.", Logger::Info, false);
 	}
 	
-	Logger.Log("Modifying Employee finished.\n###############", Logger::Info, false);
+	Logger.log("Modifying Employee finished.\n###############", Logger::Info, false);
 }
 
 void EmployeeManagementSystem::searchEmployee()
 {
-	Logger.Log("Searching Employee...", Logger::Info, false);
+	Logger.log("Searching Employee...", Logger::Info, false);
 	
 	std::string input = "Paul";
 	
@@ -155,7 +156,7 @@ void EmployeeManagementSystem::searchEmployee()
 			employeeToSearch->print();
 	}
 	
-	Logger.Log("Searching Employee finished.\n###############", Logger::Info, false);
+	Logger.log("Searching Employee finished.\n###############", Logger::Info, false);
 }
 
 void EmployeeManagementSystem::setLoopRunning(bool isLoopRunning)

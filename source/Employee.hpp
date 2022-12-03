@@ -43,10 +43,12 @@ public:
 	dateOfBirth toDateOfBirth(std::string userInputString);
 	
 private:
-		std::string mName;
-		std::string mDepartment;
-		std::string mJobTitle;
-		int mSalary;
-		dateOfBirth mDateOfBirth;
-		//TODO: create a container for the properties?
+	std::string mName;
+	std::string mDepartment;
+	std::string mJobTitle;
+	int mSalary;
+	dateOfBirth mDateOfBirth;
+	//TODO: create a container for the properties?
+	
+	Logger Logger;
 };

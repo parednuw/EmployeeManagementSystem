@@ -16,6 +16,17 @@ Employee::~Employee()
 
 void Employee::setName(std::string name)	//no error checking implemented yet
 {
+	int size = name.size();
+	
+	for (int i = 0; i < size; i++)
+	{
+		if(!isalpha(name[i]) && name[i] != ' ')	//only allow characters and white space
+		{
+			Logger.log("No digits or any special characters allowed.", Logger::Warning, false);
+			break;
+		}
+	}
+	
 	mName = name;
 }
 
