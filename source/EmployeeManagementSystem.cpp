@@ -62,17 +62,19 @@ void EmployeeManagementSystem::addEmployee()
 	std::cout << "Please enter the salary: ";
 	std::cin >> salary;
 	std::cin.ignore(INT_MAX, '\n');
-	std::cout << "Please enter the date of birth (DD.MM.YYYY): ";
-	//std::cin >> dateOfBirthString;
-	//dateOfBirth = Employee::toDateOfBirth(dateOfBirthString);
-	//dateOfBirth = {10, 10, 1910};
+	std::cout << "Please enter the day of the date of birth (DD): ";
+	std::cin >> dateOfBirth.mDayOfBirth;
+	std::cout << "Please enter the month of the date of birth (DD): ";
+	std::cin >> dateOfBirth.mMonthOfBirth;
+	std::cout << "Please enter the year of the date of birth (DD): ";
+	std::cin >> dateOfBirth.mYearOfBirth;
 
 	newEmployee->setName(name);
 	newEmployee->setDepartment(department);
 	newEmployee->setJobTitle(jobTitle);
 	newEmployee->setSalary(salary);
 	newEmployee->setDateOfBirth(dateOfBirth.mDayOfBirth, dateOfBirth.mMonthOfBirth, dateOfBirth.mYearOfBirth);
-	newEmployee->toDateOfBirth(jobTitle); //only for testing the function
+	//newEmployee->toDateOfBirth(jobTitle); //only for testing the function
 	
 	entries.push_back(std::move(newEmployee));
 	
