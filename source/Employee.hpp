@@ -27,11 +27,14 @@ public:
 		std::string toString();
 	};
 	
+	bool isInputValidString(std::string input);
+	bool isInputValidInteger(std::string input);
+	
 	void setName(std::string name);
-	void setDepartment (std::string department);
-	void setJobTitle (std::string jobTitle);
-	void setSalary (int salary);
-	void setDateOfBirth (int dayOfBirth, int monthOfBirth, int yearOfBirth);
+	void setDepartment(std::string department);
+	void setJobTitle(std::string jobTitle);
+	void setSalary(std::string salary);
+	void setDateOfBirth(int dayOfBirth, int monthOfBirth, int yearOfBirth);
 	
 	std::string getName();
 	std::string getDepartment();

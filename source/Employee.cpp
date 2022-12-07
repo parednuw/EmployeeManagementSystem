@@ -14,60 +14,59 @@ Employee::~Employee()
 	
 }
 
-void Employee::setName(std::string name)
+bool Employee::isInputValidString(std::string input)
 {
-	int size = name.size();
+	int size = input.size();
 	
 	for (int i = 0; i < size; i++)
 	{
-		if(!isalpha(name[i]) && name[i] != ' ')	//only allow characters and white space
+		if(!isalpha(input[i]) && input[i] != ' ')	//only allow characters and white space
 		{
 			Logger.log("No digits or any special characters allowed.", Logger::Warning, false);
-			break;
+			return false;
 		}
-		else if (i == (size - 1))
-			mName = name;
 	}
+	return true;
+}
+
+bool Employee::isInputValidInteger(std::string input)
+{
+	int size = input.size();
+	
+	for (int i = 0; i < size; i++)
+	{
+		if(!isdigit(input[i]))	//only allow digits
+		{
+			Logger.log("No characters, whitespaces or any special characters allowed.", Logger::Warning, false);
+			return false;
+		}
+	}
+	return true;
+}
+
+
+void Employee::setName(std::string name)
+{
+	mName = name;
 }
 
 void Employee::setDepartment(std::string department)
 {
-	int size = department.size();
-	
-	for (int i = 0; i < size; i++)
-	{
-		if(!isalpha(department[i]) && department[i] != ' ')	//only allow characters and white space
-		{
-			Logger.log("No digits or any special characters allowed.", Logger::Warning, false);
-			break;
-		}
-		else if (i == (size - 1))
-			mDepartment = department;
-	}
+	mDepartment = department;
 }
 
 void Employee::setJobTitle(std::string jobTitle)
 {
-	int size = jobTitle.size();
-	
-	for (int i = 0; i < size; i++)
-	{
-		if(!isalpha(jobTitle[i]) && jobTitle[i] != ' ')	//only allow characters and white space
-		{
-			Logger.log("No digits or any special characters allowed.", Logger::Warning, false);
-			break;
-		}
-		else if (i == (size - 1))
-			mJobTitle = jobTitle;
-	}
+	mJobTitle = jobTitle;
 }
 
-void Employee::setSalary(int salary) //no error checking implemented yet
+void Employee::setSalary(std::string salary)
 {
-	mSalary = salary;
+	
+	mSalary = std::stoi(salary);
 }
 
-void Employee::setDateOfBirth(int day, int month, int year)	//no error checking implemented yet
+void Employee::setDateOfBirth(int day, int month, int year)
 {
 	mDateOfBirth.mDayOfBirth = day;
 	mDateOfBirth.mMonthOfBirth = month;

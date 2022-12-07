@@ -45,7 +45,7 @@ void EmployeeManagementSystem::addEmployee()
 	std::string name;
 	std::string department;
 	std::string jobTitle;
-	int salary;
+	std::string salary;
 	std::string dateOfBirthString;
 	Employee::dateOfBirth dateOfBirth;
 	
@@ -53,23 +53,26 @@ void EmployeeManagementSystem::addEmployee()
 	//-----------------
 	std::cout << "Please enter the name: ";
 	std::getline(std::cin, name);
-	newEmployee->setName(name);	//TODO: here and in the following setter-lines is one copy-instruction to much
+	if(newEmployee->isInputValidString(name))
+		newEmployee->setName(name);	//TODO: here and in the following setter-lines is one copy-instruction to much
 	std::cin.clear();
 	
 	std::cout << "Please enter the department: ";
 	std::getline(std::cin, department);
-	newEmployee->setDepartment(department);
+	if(newEmployee->isInputValidString(department))
+		newEmployee->setDepartment(department);
 	std::cin.clear();
 	
 	std::cout << "Please enter the jobtitle: ";
 	std::getline(std::cin, jobTitle);
-	newEmployee->setJobTitle(jobTitle);
-	std::cin.ignore(INT_MAX, '\n');
+	if(newEmployee->isInputValidString(jobTitle))
+		newEmployee->setJobTitle(jobTitle);
 	std::cin.clear();
 	
 	std::cout << "Please enter the salary: ";
 	std::cin >> salary;
-	newEmployee->setSalary(salary);
+	if (newEmployee->isInputValidInteger(salary))
+		newEmployee->setSalary(salary);
 	std::cin.ignore(INT_MAX, '\n');
 	std::cin.clear();
 	
