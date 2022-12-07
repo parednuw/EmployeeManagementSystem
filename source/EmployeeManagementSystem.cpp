@@ -54,28 +54,40 @@ void EmployeeManagementSystem::addEmployee()
 	std::cout << "Please enter the name: ";
 	std::getline(std::cin, name);
 	newEmployee->setName(name);	//TODO: here and in the following setter-lines is one copy-instruction to much
+	std::cin.clear();
+	
 	std::cout << "Please enter the department: ";
-	std::cin >> department;
+	std::getline(std::cin, department);
 	newEmployee->setDepartment(department);
-	std::cin.ignore(INT_MAX, '\n');
+	std::cin.clear();
+	
 	std::cout << "Please enter the jobtitle: ";
-	std::cin >> jobTitle;
+	std::getline(std::cin, jobTitle);
 	newEmployee->setJobTitle(jobTitle);
 	std::cin.ignore(INT_MAX, '\n');
+	std::cin.clear();
+	
 	std::cout << "Please enter the salary: ";
 	std::cin >> salary;
 	newEmployee->setSalary(salary);
 	std::cin.ignore(INT_MAX, '\n');
+	std::cin.clear();
+	
 	std::cout << "Please enter the day of the date of birth (DD): ";
 	std::cin >> dateOfBirth.mDayOfBirth;
 	std::cin.ignore(INT_MAX, '\n');
+	std::cin.clear();
+	
 	std::cout << "Please enter the month of the date of birth (MM): ";
 	std::cin >> dateOfBirth.mMonthOfBirth;
 	std::cin.ignore(INT_MAX, '\n');
+	std::cin.clear();
+	
 	std::cout << "Please enter the year of the date of birth (YYYY): ";
 	std::cin >> dateOfBirth.mYearOfBirth;
 	newEmployee->setDateOfBirth(dateOfBirth.mDayOfBirth, dateOfBirth.mMonthOfBirth, dateOfBirth.mYearOfBirth);
 	std::cin.ignore(INT_MAX, '\n');
+	std::cin.clear();
 	
 	entries.push_back(std::move(newEmployee));
 	

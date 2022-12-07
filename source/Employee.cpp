@@ -14,7 +14,7 @@ Employee::~Employee()
 	
 }
 
-void Employee::setName(std::string name)	//no error checking implemented yet
+void Employee::setName(std::string name)
 {
 	int size = name.size();
 	
@@ -25,22 +25,44 @@ void Employee::setName(std::string name)	//no error checking implemented yet
 			Logger.log("No digits or any special characters allowed.", Logger::Warning, false);
 			break;
 		}
+		else if (i == (size - 1))
+			mName = name;
 	}
+}
+
+void Employee::setDepartment(std::string department)
+{
+	int size = department.size();
 	
-	mName = name;
+	for (int i = 0; i < size; i++)
+	{
+		if(!isalpha(department[i]) && department[i] != ' ')	//only allow characters and white space
+		{
+			Logger.log("No digits or any special characters allowed.", Logger::Warning, false);
+			break;
+		}
+		else if (i == (size - 1))
+			mDepartment = department;
+	}
 }
 
-void Employee::setDepartment(std::string department)	//no error checking implemented yet
+void Employee::setJobTitle(std::string jobTitle)
 {
-	mDepartment = department;
+	int size = jobTitle.size();
+	
+	for (int i = 0; i < size; i++)
+	{
+		if(!isalpha(jobTitle[i]) && jobTitle[i] != ' ')	//only allow characters and white space
+		{
+			Logger.log("No digits or any special characters allowed.", Logger::Warning, false);
+			break;
+		}
+		else if (i == (size - 1))
+			mJobTitle = jobTitle;
+	}
 }
 
-void Employee::setJobTitle(std::string jobTitle)	//no error checking implemented yet
-{
-	mJobTitle = jobTitle;
-}
-
-void Employee::setSalary(int salary)	//no error checking implemented yet
+void Employee::setSalary(int salary) //no error checking implemented yet
 {
 	mSalary = salary;
 }
