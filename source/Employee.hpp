@@ -18,15 +18,6 @@ public:
 	Employee();
 	~Employee();
 	
-	struct dateOfBirth
-	{
-		int mDayOfBirth;
-		int mMonthOfBirth;
-		int mYearOfBirth;
-		
-		std::string toString();
-	};
-	
 	bool isInputValidString(std::string input);
 	bool isInputValidInteger(std::string input);
 	
@@ -34,24 +25,28 @@ public:
 	void setDepartment(std::string department);
 	void setJobTitle(std::string jobTitle);
 	void setSalary(std::string salary);
-	void setDateOfBirth(int dayOfBirth, int monthOfBirth, int yearOfBirth);
+	void setDayOfBirth(std::string day);
+	void setMonthOfBirth(std::string month);
+	void setYearOfBirth(std::string year);
 	
 	std::string getName();
 	std::string getDepartment();
 	std::string getJobTitle();
 	int getSalary();
-	dateOfBirth getDateOfBirth();
+	int getDayOfBirth();
+	int getMonthOfBirth();
+	int getYearOfBirth();
 	
 	void print();
-	dateOfBirth toDateOfBirth(std::string userInputString);
 	
 private:
 	std::string mName;
 	std::string mDepartment;
 	std::string mJobTitle;
 	int mSalary;
-	dateOfBirth mDateOfBirth;
-	//TODO: create a container for the properties?
+	int mDayOfBirth;
+	int mMonthOfBirth;
+	int mYearOfBirth;
 	
 	Logger Logger;
 };

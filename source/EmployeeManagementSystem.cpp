@@ -27,9 +27,10 @@ void EmployeeManagementSystem::Run()
 			addEmployee();
 		
 		viewEmployee();
-		modifyEmployee();
-		viewEmployee();
-		searchEmployee();
+		//modifyEmployee();
+		//viewEmployee();
+		//searchEmployee();
+		deleteEmployee();
 		
 		std::cout << "Should loop run? ";
 		std::cin >> isLoopRunning;
@@ -46,15 +47,16 @@ void EmployeeManagementSystem::addEmployee()
 	std::string department;
 	std::string jobTitle;
 	std::string salary;
-	std::string dateOfBirthString;
-	Employee::dateOfBirth dateOfBirth;
+	std::string dayOfBirth;
+	std::string monthOfBirth;
+	std::string yearOfBirth;
 	
 	//Get user-input
 	//-----------------
 	std::cout << "Please enter the name: ";
 	std::getline(std::cin, name);
 	if(newEmployee->isInputValidString(name))
-		newEmployee->setName(name);	//TODO: here and in the following setter-lines is one copy-instruction to much
+		newEmployee->setName(name);	//TODO: here and in the following setter-lines is one copy-instruction to much?
 	std::cin.clear();
 	
 	std::cout << "Please enter the department: ";
@@ -70,26 +72,27 @@ void EmployeeManagementSystem::addEmployee()
 	std::cin.clear();
 	
 	std::cout << "Please enter the salary: ";
-	std::cin >> salary;
+	std::getline(std::cin, salary);
 	if (newEmployee->isInputValidInteger(salary))
 		newEmployee->setSalary(salary);
-	std::cin.ignore(INT_MAX, '\n');
 	std::cin.clear();
 	
 	std::cout << "Please enter the day of the date of birth (DD): ";
-	std::cin >> dateOfBirth.mDayOfBirth;
-	std::cin.ignore(INT_MAX, '\n');
+	std::getline(std::cin, dayOfBirth);
+	if (newEmployee->isInputValidInteger(dayOfBirth))
+		newEmployee->setDayOfBirth(dayOfBirth);
 	std::cin.clear();
 	
 	std::cout << "Please enter the month of the date of birth (MM): ";
-	std::cin >> dateOfBirth.mMonthOfBirth;
-	std::cin.ignore(INT_MAX, '\n');
+	std::getline(std::cin, monthOfBirth);
+	if (newEmployee->isInputValidInteger(monthOfBirth))
+		newEmployee->setMonthOfBirth(monthOfBirth);
 	std::cin.clear();
 	
 	std::cout << "Please enter the year of the date of birth (YYYY): ";
-	std::cin >> dateOfBirth.mYearOfBirth;
-	newEmployee->setDateOfBirth(dateOfBirth.mDayOfBirth, dateOfBirth.mMonthOfBirth, dateOfBirth.mYearOfBirth);
-	std::cin.ignore(INT_MAX, '\n');
+	std::getline(std::cin, yearOfBirth);
+	if (newEmployee->isInputValidInteger(yearOfBirth))
+		newEmployee->setYearOfBirth(yearOfBirth);
 	std::cin.clear();
 	
 	entries.push_back(std::move(newEmployee));
@@ -107,7 +110,6 @@ void EmployeeManagementSystem::deleteEmployee()
 		
 	}else if (!entries.empty())
 	{
-		entries[0].reset();		//necessary?
 		entries.erase(entries.begin());
 		Logger.log("Deleted Entry.", Logger::Info, false);
 	}
@@ -150,7 +152,7 @@ void EmployeeManagementSystem::modifyEmployee()
 		std::cin >> userinput;
 		
 		Employee* employeeToModify = entries[userinput].get();
-		employeeToModify->setDateOfBirth(20, 20, 2020);
+		employeeToModify->setDayOfBirth("20");
 		Logger.log("Modified entry.", Logger::Info, false);
 	}
 	
