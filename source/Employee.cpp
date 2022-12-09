@@ -15,7 +15,11 @@ Employee::~Employee()
 {
 	
 }
+//------------------------
+//------------------------
 
+//Validation
+//------------------------
 bool Employee::isValidString(std::string input)
 {
 	int size = input.size();
@@ -194,12 +198,6 @@ bool Employee::isValidDate(std::string &year, std::string &month, std::string &d
 					}else
 						dayValid = true;
 					break;
-					
-					//			default:
-					//			{
-					//				Logger.log("Month out of range -> cannot determine day.", Logger::Warning, false);
-					//				dayValid = false;
-					//			}
 			}
 		}
 	}
@@ -209,7 +207,11 @@ bool Employee::isValidDate(std::string &year, std::string &month, std::string &d
 	else
 		return false;
 }
+//------------------------
+//------------------------
 
+//Setter
+//------------------------
 void Employee::setName(std::string name)
 {
 	mName = name;
@@ -245,6 +247,11 @@ void Employee::setYearOfBirth(std::string year)
 {
 	mYearOfBirth = std::stoi(year);
 }
+//------------------------
+//------------------------
+
+//Getter
+//------------------------
 
 std::string Employee::getName()
 {
@@ -280,6 +287,8 @@ int Employee::getYearOfBirth()
 {
 	return mYearOfBirth;
 }
+//------------------------
+//------------------------
 
 void Employee::print()
 {
@@ -291,7 +300,48 @@ void Employee::print()
 	std::string monthOfBirth = std::to_string(this->getMonthOfBirth());
 	std::string yearOfBirth = std::to_string(this->getYearOfBirth());
 	
-	std::cout << "NAME................" << "DEPARTMENT.........." << " JOB TITLE..........." << "SALARY.............." << "DATE OF BIRTH......." << std::endl;
+	std::string str = "                    ";
+
+	for (int i = 0; i < name.size(); i++)
+	{
+		str.pop_back();
+	}
+	name.append(str);
 	
-	std::cout << name << department << jobTitle << salary << dayOfBirth << monthOfBirth << yearOfBirth << std::endl;
+	str = "                    ";
+
+	for (int i = 0; i < department.size(); i++)
+	{
+		str.pop_back();
+	}
+	department.append(str);
+
+	str = "                    ";
+
+	for (int i = 0; i < jobTitle.size(); i++)
+	{
+		str.pop_back();
+	}
+	jobTitle.append(str);
+	
+	str = "                    ";
+	salary.append(" EUR");
+	
+	for (int i = 0; i < salary.size(); i++)
+	{
+		str.pop_back();
+	}
+	salary.append(str);
+	
+	str = "                    ";
+	std::string birthday = dayOfBirth + "." + monthOfBirth + "." + yearOfBirth;
+	
+	for (int i = 0; i < birthday.size(); i++)
+	{
+		str.pop_back();
+	}
+	
+	//std::cout << "NAME................" << "DEPARTMENT.........." << "JOB TITLE..........." << "SALARY.............." << "DATE OF BIRTH......." << std::endl;
+	
+	std::cout << name << department << jobTitle << salary << birthday << std::endl;
 }

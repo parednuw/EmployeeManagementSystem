@@ -30,7 +30,7 @@ void EmployeeManagementSystem::Run()
 		//modifyEmployee();
 		//viewEmployee();
 		//searchEmployee();
-		deleteEmployee();
+		//deleteEmployee();
 		
 		std::cout << "Should loop run? ";
 		std::cin >> isLoopRunning;
@@ -52,7 +52,7 @@ void EmployeeManagementSystem::addEmployee()
 	std::string yearOfBirth;
 	
 	//Get user-input
-	//-----------------
+	//------------------------
 	std::cout << "Please enter the name: ";
 	std::getline(std::cin, name);
 	if(newEmployee->isValidString(name))
@@ -128,6 +128,7 @@ void EmployeeManagementSystem::viewEmployee()
 		
 	}else if (!entries.empty())
 	{
+		std::cout << "NAME................" << "DEPARTMENT.........." << "JOB TITLE..........." << "SALARY.............." << "DATE OF BIRTH......." << std::endl;
 		for (std::size_t i = 0; i < entries.size(); i++)
 		{
 			Employee* employeeToView = entries[i].get();
