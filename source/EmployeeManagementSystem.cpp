@@ -55,44 +55,45 @@ void EmployeeManagementSystem::addEmployee()
 	//-----------------
 	std::cout << "Please enter the name: ";
 	std::getline(std::cin, name);
-	if(newEmployee->isInputValidString(name))
+	if(newEmployee->isValidString(name))
 		newEmployee->setName(name);	//TODO: here and in the following setter-lines is one copy-instruction to much?
 	std::cin.clear();
 	
 	std::cout << "Please enter the department: ";
 	std::getline(std::cin, department);
-	if(newEmployee->isInputValidString(department))
+	if(newEmployee->isValidString(department))
 		newEmployee->setDepartment(department);
 	std::cin.clear();
 	
 	std::cout << "Please enter the jobtitle: ";
 	std::getline(std::cin, jobTitle);
-	if(newEmployee->isInputValidString(jobTitle))
+	if(newEmployee->isValidString(jobTitle))
 		newEmployee->setJobTitle(jobTitle);
 	std::cin.clear();
 	
 	std::cout << "Please enter the salary: ";
 	std::getline(std::cin, salary);
-	if (newEmployee->isInputValidInteger(salary))
+	if (newEmployee->isValidNumber(salary))
 		newEmployee->setSalary(salary);
 	std::cin.clear();
 	
 	std::cout << "Please enter the day of the date of birth (DD): ";
 	std::getline(std::cin, dayOfBirth);
-	if (newEmployee->isInputValidInteger(dayOfBirth))
-		newEmployee->setDayOfBirth(dayOfBirth);
 	std::cin.clear();
 	
 	std::cout << "Please enter the month of the date of birth (MM): ";
 	std::getline(std::cin, monthOfBirth);
-	if (newEmployee->isInputValidInteger(monthOfBirth))
-		newEmployee->setMonthOfBirth(monthOfBirth);
 	std::cin.clear();
 	
 	std::cout << "Please enter the year of the date of birth (YYYY): ";
 	std::getline(std::cin, yearOfBirth);
-	if (newEmployee->isInputValidInteger(yearOfBirth))
+	if (newEmployee->isValidDate(yearOfBirth, monthOfBirth, dayOfBirth))
+	{
 		newEmployee->setYearOfBirth(yearOfBirth);
+		newEmployee->setMonthOfBirth(monthOfBirth);
+		newEmployee->setDayOfBirth(dayOfBirth);
+		
+	}
 	std::cin.clear();
 	
 	entries.push_back(std::move(newEmployee));

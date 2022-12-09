@@ -16,7 +16,7 @@ Employee::~Employee()
 	
 }
 
-bool Employee::isInputValidString(std::string input)
+bool Employee::isValidString(std::string input)
 {
 	int size = input.size();
 	
@@ -31,7 +31,7 @@ bool Employee::isInputValidString(std::string input)
 	return true;
 }
 
-bool Employee::isInputValidInteger(std::string input)
+bool Employee::isValidNumber(std::string input)
 {
 	int size = input.size();
 	
@@ -46,6 +46,169 @@ bool Employee::isInputValidInteger(std::string input)
 	return true;
 }
 
+bool Employee::isValidDate(std::string &year, std::string &month, std::string &day)
+{
+	int yearAsInteger = std::stoi(year);
+	int monthAsInteger = std::stoi(month);
+	int dayAsInteger = std::stoi(day);
+	
+	bool yearValid = false;
+	bool monthValid = false;
+	bool dayValid = false;
+	
+	if(isValidNumber(year))
+	{
+		if (yearAsInteger < 1900 || yearAsInteger > 2022)
+		{
+			Logger.log("Year out of range!", Logger::Warning, false);
+			yearValid = false;
+		}else
+			yearValid = true;
+	}
+	
+	if(isValidNumber(month))
+	{
+		if (monthAsInteger < 1 || monthAsInteger > 12)
+		{
+			Logger.log("Month out of range!", Logger::Warning, false);
+			monthValid = false;
+		}else
+			monthValid = true;
+	}
+	
+	if (isValidNumber(day))
+	{
+		if (dayAsInteger < 1 || dayAsInteger > 31)
+		{
+			Logger.log("Day out of range!", Logger::Warning, false);
+			dayValid = false;
+		}
+		else
+		{
+			switch (monthAsInteger)
+			{
+				case (1):
+					if (dayAsInteger > 31)
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+				case (2):
+					if (dayAsInteger > 28)	//No leap year implemented yet
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+				case (3):
+					if (dayAsInteger > 31)
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+				case(4):
+					if (dayAsInteger > 30)
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+				case (5):
+					if (dayAsInteger > 31)
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+				case (6):
+					if (dayAsInteger > 30)
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+				case (7):
+					if (dayAsInteger > 31)
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+				case (8):
+					if (dayAsInteger > 31)
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+				case (9):
+					if (dayAsInteger > 30)
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+				case (10):
+					if (dayAsInteger > 31)
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+				case (11):
+					if (dayAsInteger > 30)
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+				case (12):
+					if (dayAsInteger > 31)
+					{
+						Logger.log("Day out of range!", Logger::Warning, false);
+						dayValid = false;
+					}else
+						dayValid = true;
+					break;
+					
+					//			default:
+					//			{
+					//				Logger.log("Month out of range -> cannot determine day.", Logger::Warning, false);
+					//				dayValid = false;
+					//			}
+			}
+		}
+	}
+	
+	if (yearValid && monthValid && dayValid)
+		return true;
+	else
+		return false;
+}
 
 void Employee::setName(std::string name)
 {

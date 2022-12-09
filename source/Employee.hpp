@@ -18,8 +18,17 @@ public:
 	Employee();
 	~Employee();
 	
-	bool isInputValidString(std::string input);
-	bool isInputValidInteger(std::string input);
+	bool isValidString(std::string input);
+	bool isValidNumber(std::string input);
+	
+	enum Date
+	{
+		Day = 0,
+		Month = 1,
+		Year = 2
+	};
+
+	bool isValidDate(std::string &year, std::string &month, std::string &day);
 	
 	void setName(std::string name);
 	void setDepartment(std::string department);
