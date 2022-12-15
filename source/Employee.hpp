@@ -46,7 +46,7 @@ public:
 	int getMonthOfBirth();
 	int getYearOfBirth();
 	
-	void print();
+	void print(bool withHeadRow);
 	
 private:
 	std::string mName;

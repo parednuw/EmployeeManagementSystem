@@ -290,7 +290,7 @@ int Employee::getYearOfBirth()
 //------------------------
 //------------------------
 
-void Employee::print()
+void Employee::print(bool withHeadRow)
 {
 	std::string name = this->getName();
 	std::string department = this->getDepartment();
@@ -341,7 +341,8 @@ void Employee::print()
 		str.pop_back();
 	}
 	
-	//std::cout << "NAME................" << "DEPARTMENT.........." << "JOB TITLE..........." << "SALARY.............." << "DATE OF BIRTH......." << std::endl;
+	if (withHeadRow)
+		std::cout << "NAME................" << "DEPARTMENT.........." << "JOB TITLE..........." << "SALARY.............." << "DATE OF BIRTH......." << std::endl;
 	
 	std::cout << name << department << jobTitle << salary << birthday << std::endl;
 }

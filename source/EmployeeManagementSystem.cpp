@@ -29,7 +29,7 @@ void EmployeeManagementSystem::Run()
 		viewEmployee();
 		//modifyEmployee();
 		//viewEmployee();
-		//searchEmployee();
+		searchEmployee();
 		//deleteEmployee();
 		
 		std::cout << "Should loop run? ";
@@ -128,11 +128,13 @@ void EmployeeManagementSystem::viewEmployee()
 		
 	}else if (!entries.empty())
 	{
-		std::cout << "NAME................" << "DEPARTMENT.........." << "JOB TITLE..........." << "SALARY.............." << "DATE OF BIRTH......." << std::endl;
+		bool withHeadRow = true;
 		for (std::size_t i = 0; i < entries.size(); i++)
 		{
 			Employee* employeeToView = entries[i].get();
-			employeeToView->print();
+			employeeToView->print(withHeadRow);
+			
+			withHeadRow = false;
 		}
 	}
 	
@@ -164,15 +166,22 @@ void EmployeeManagementSystem::modifyEmployee()
 void EmployeeManagementSystem::searchEmployee()
 {
 	Logger.log("Searching Employee...", Logger::Info, false);
+	std::string input;
 	
-	std::string input = "Paul";
+	std::cout << "Please enter the name: ";
+	std::getline(std::cin, input);
+	//if(newEmployee->isValidString(input))	//TODO: move validation?
+		
+	bool withHeadRow = true;
 	
 	for (std::size_t i = 0; i < entries.size(); i++)
 	{
 		Employee* employeeToSearch = entries[i].get();
-		std::string employeeToSearchName = employeeToSearch->getName();
-		if (input == employeeToSearchName)
-			employeeToSearch->print();
+		if (input == employeeToSearch->getName())
+		{
+			employeeToSearch->print(withHeadRow);
+			withHeadRow = false;
+		}
 	}
 	
 	Logger.log("Searching Employee finished.\n###############", Logger::Info, false);
